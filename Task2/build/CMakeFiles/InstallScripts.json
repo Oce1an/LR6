@@ -1,7 +1,10 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/projects/lr6new/task2/build/cmake_install.cmake"
+		"C:/projects/lr6/task2/build/cmake_install.cmake",
+		"C:/projects/lr6/task2/build/_deps/googletest-build/cmake_install.cmake",
+		"C:/projects/lr6/task2/build/_deps/googletest-build/googlemock/cmake_install.cmake",
+		"C:/projects/lr6/task2/build/_deps/googletest-build/googletest/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
