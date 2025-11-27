@@ -1,13 +1,10 @@
 #include <iostream>
-#include <locale>
 #include <cstdio>
 #include <cctype>
 using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
-
 	const int maxlength = 81;
 	char ch;
 	int l = 0;
@@ -15,7 +12,7 @@ int main()
 	char* string = new char[maxlength];
 	char* floatNum = new char[maxlength];
 
-	cout << "Введите строку:\n";
+	cout << "Input string:\n";
 	while ((ch = getchar()) != '\n' && l < maxlength - 1)
 	{
 		string[l] = ch;
@@ -42,8 +39,8 @@ int main()
 	}
 	floatNum[count] = '\0';
 
-	cout << "Изначальный ввод: " << string << endl;
-	cout << "Вещественное число =  " << floatNum << endl;
+	cout << "Initial input: " << string << endl;
+	cout << "Double number =  " << floatNum << endl;
 
 	delete[] string;
 	delete[] floatNum;
