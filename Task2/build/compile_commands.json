@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/projects/lr6new/task2/build",
+  "command": "C:\\llvm\\bin\\clang++.exe  -fsanitize=address -fno-omit-frame-pointer -std=gnu++17 -o CMakeFiles\\main.dir\\src\\task2.cpp.obj -c C:\\Projects\\LR6new\\Task2\\src\\task2.cpp",
+  "file": "C:/Projects/LR6new/Task2/src/task2.cpp",
+  "output": "C:/projects/lr6new/task2/build/CMakeFiles/main.dir/src/task2.cpp.obj"
+}
+]
