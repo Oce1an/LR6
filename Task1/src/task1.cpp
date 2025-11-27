@@ -1,48 +1,39 @@
-#include <iostream>
-#include <cstdio>
+#include "task1.h"
 #include <cctype>
-using namespace std;
 
-int main()
-{
-	const int maxlength = 81;
-	char ch;
-	int l = 0;
+void extractFloatNumber(const char* input, char* output, int maxLength) {
+    int count = 0;
+    int dotCount = 0;
+    bool hasDigits = false;
 
-	char* string = new char[maxlength];
-	char* floatNum = new char[maxlength];
+    for (int i = 0; input[i] != '\0'; i++) {
+        if (std::isdigit(static_cast<unsigned char>(input[i]))) {
+            hasDigits = true;
+            break;
+        }
+    }
 
-	cout << "Input string:\n";
-	while ((ch = getchar()) != '\n' && l < maxlength - 1)
-	{
-		string[l] = ch;
-		l++;
-	}
-	string[l] = '\0';
+    if (!hasDigits) {
+        output[0] = '\0';
+        return;
+    }
 
-	int count = 0;
-	int dotCount = 0;
+    for (int i = 0; input[i] != '\0' && count < maxLength - 1; i++) {
+        if (std::isdigit(static_cast<unsigned char>(input[i]))) {
+            output[count++] = input[i];
+        }
+        else if (input[i] == '.' && dotCount == 0) {
+            output[count++] = input[i];
+            dotCount++;
+        }
+    }
+    output[count] = '\0';
 
-	for (int i = 0; i < l; i++)
-	{
-		if (isdigit(string[i]))
-		{
-			floatNum[count] = string[i];
-			count++;
-		}
-		else if (string[i] == '.' && dotCount == 0)
-		{
-			floatNum[count] = string[i];
-			count++;
-			dotCount++;
-		}
-	}
-	floatNum[count] = '\0';
-
-	cout << "Initial input: " << string << endl;
-	cout << "Double number =  " << floatNum << endl;
-
-	delete[] string;
-	delete[] floatNum;
-	return 0;
+    if (output[0] == '.' && count < maxLength - 1) {
+        for (int i = count; i > 0; i--) {
+            output[i] = output[i - 1];
+        }
+        output[0] = '0';
+        output[count + 1] = '\0';
+    }
 }
