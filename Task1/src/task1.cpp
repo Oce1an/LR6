@@ -29,7 +29,12 @@ void extractFloatNumber(const char* input, char* output, int maxLength) {
     }
     output[count] = '\0';
 
-    if (output[0] == '.' && count < maxLength - 1) {
+    if (count > 0 && output[count - 1] == '.') {
+        output[count - 1] = '\0';
+        count--;
+    }
+
+    if (count > 0 && output[0] == '.' && count < maxLength - 1) {
         for (int i = count; i > 0; i--) {
             output[i] = output[i - 1];
         }
