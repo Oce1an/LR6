@@ -18,12 +18,14 @@ TEST(StartsWithConsonantTest, NonAlphaFirstChar) {
 }
 
 TEST(RemoveWordsTest, RemoveConsonantWordsOfLength3) {
-    const char* inputText[] = { "cat dog elephant" };
+    const char* inputText = "cat dog elephant";
     char* input[1];
     char* output[1];
 
     input[0] = new char[40];
-    strcpy(input[0], "cat dog elephant");
+    std::strncpy(input[0], inputText, 39);
+    input[0][39] = '\0';
+
     output[0] = new char[40];
 
     removeWordsWithLength(input, output, 1, 3);
@@ -34,12 +36,14 @@ TEST(RemoveWordsTest, RemoveConsonantWordsOfLength3) {
 }
 
 TEST(RemoveWordsTest, KeepVowelStartWords) {
-    const char* inputText[] = { "apple bear cat" };
+    const char* inputText = "apple bear cat";
     char* input[1];
     char* output[1];
 
     input[0] = new char[40];
-    strcpy(input[0], "apple bear cat");
+    std::strncpy(input[0], inputText, 39);
+    input[0][39] = '\0';
+
     output[0] = new char[40];
 
     removeWordsWithLength(input, output, 1, 5);
@@ -65,12 +69,14 @@ TEST(RemoveWordsTest, EmptyLine) {
 }
 
 TEST(RemoveWordsTest, MultipleWordsSameLength) {
-    const char* inputText[] = { "bat cat rat sat" };
+    const char* inputText = "bat cat rat sat";
     char* input[1];
     char* output[1];
 
     input[0] = new char[40];
-    strcpy(input[0], "bat cat rat sat");
+    std::strncpy(input[0], inputText, 39);
+    input[0][39] = '\0';
+
     output[0] = new char[40];
 
     removeWordsWithLength(input, output, 1, 3);
@@ -81,12 +87,14 @@ TEST(RemoveWordsTest, MultipleWordsSameLength) {
 }
 
 TEST(RemoveWordsTest, MixedCaseConsonant) {
-    const char* inputText[] = { "Cat Dog" };
+    const char* inputText = "Cat Dog";
     char* input[1];
     char* output[1];
 
     input[0] = new char[40];
-    strcpy(input[0], "Cat Dog");
+    std::strncpy(input[0], inputText, 39);
+    input[0][39] = '\0';
+
     output[0] = new char[40];
 
     removeWordsWithLength(input, output, 1, 3);
@@ -97,12 +105,14 @@ TEST(RemoveWordsTest, MixedCaseConsonant) {
 }
 
 TEST(RemoveWordsTest, NoWordsToRemove) {
-    const char* inputText[] = { "hello world test" };
+    const char* inputText = "hello world test";
     char* input[1];
     char* output[1];
 
     input[0] = new char[40];
-    strcpy(input[0], "hello world test");
+    std::strncpy(input[0], inputText, 39);
+    input[0][39] = '\0';
+
     output[0] = new char[40];
 
     removeWordsWithLength(input, output, 1, 10);
